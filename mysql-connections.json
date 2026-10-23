@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "connectionTags": {},
+    "connections": [
+        {
+            "dbType": "MySQL",
+            "caption": "Motrix Local",
+            "description": "A new Database Connection",
+            "options": {
+                "scheme": "mysql",
+                "host": "localhost",
+                "port": 3306,
+                "user": "root",
+                "ssl-mode": "PREFERRED",
+                "compression-level": 3,
+                "connect-timeout": 0,
+                "disable-heat-wave-check": false
+            },
+            "folderPath": "/",
+            "settings": {},
+            "tags": []
+        }
+    ]
+}
