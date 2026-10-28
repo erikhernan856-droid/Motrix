@@ -8,15 +8,15 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id('empleado_id');
-            $table->string('DNI', 45);
-            $table->string('Name', 45);
-            $table->string('Last_name', 45);
-            $table->string('Cargo', 45);
-            $table->string('Phone', 45);
-            $table->unsignedBigInteger('Fk_Agencia');
-            $table->foreign('Fk_Agencia')->references('id')->on('Agencia')->onDelete('cascade');
+            $table->string('documento', 30)->unique();
+            $table->string('nombre', 45);
+            $table->string('apellido', 45);
+            $table->string('cargo', 45);
+            $table->string('telefono', 45)->nullable();
+            $table->foreignId('agencia_id')->constrained('agencias', 'agencia_id')->onDelete('cascade');
             $table->timestamps();
         });
     }
+
     public function down(): void { Schema::dropIfExists('empleados'); }
 };

@@ -13,8 +13,8 @@ export default function AppLogoIcon(props: SVGAttributes<SVGElement>) {
     );
 }*/
 
-import logo from '@/assets/Logo_Motrix.png';
+import logo from '@/assets/Logo_motrix.png';
 
 export default function AppLogoIcon(props: React.ImgHTMLAttributes<HTMLImageElement>) {
-    return <img src={logo} alt=" Logo" {...props}/>;
+    return <img src={logo} alt="Motrix" {...props} />;
 }

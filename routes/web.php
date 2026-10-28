@@ -5,8 +5,16 @@ use \App\Models\Client;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\EmpleadoController;
+
+Route::resource('empleados', EmpleadoController::class)->except('show');
+
+Route::resource('vehicles', VehicleController::class)->except('show');
 
 Route::inertia('/', 'welcome')->name('home');
+
+Route::resource('vehicles', VehicleController::class)->except('show');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

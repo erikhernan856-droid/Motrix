@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->decimal('Total', 10, 2);
             $table->string('metodo_pago', 45);
             
-            $table->foreign('fk_cliente')->references('cod_cliente')->on('Cliente')->onDelete('cascade');
+            $table->foreign('fk_cliente')->references('client_id')->on('clients')->onDelete('cascade');
             $table->timestamps();
         });
     }

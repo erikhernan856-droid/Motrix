@@ -6,8 +6,8 @@ const AppLogoIconComponent = AppLogoIcon as ComponentType<ImgHTMLAttributes<HTML
 export default function AppLogo() {
     return (
         <>
-            <div className="flex aspect-square size-18 items-center justify-center rounded-md">
-                <AppLogoIconComponent className="size-13 object_contain" />
+            <div className="flex aspect-square size-20 items-center justify-center rounded-md">
+                <AppLogoIconComponent className="size-17 object_contain" />
             </div>
             <div className="ml-3 grid flex-1 text-left text-sm">
                 <span className="mb-1 truncate leading-tight font-semibold">

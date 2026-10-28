@@ -13,7 +13,6 @@ class Facturacion extends Model
     protected $primaryKey = 'id_factura';
     protected $guarded = [];
 
-    // Una factura pertenece a un cliente
     public function cliente()
     {
         return $this->belongsTo(Cliente::class, 'fk_cliente', 'cod_cliente');

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void {
         Schema::create('Inventario_Rep', function (Blueprint $table) {
-            $table->id('id_repuesto');
+            $table->id('repuesto_id');
             $table->string('Code_piece', 45);
             $table->string('Name_piece', 45);
             $table->text('Description');

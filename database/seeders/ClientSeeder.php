@@ -12,7 +12,9 @@ class ClientSeeder extends Seeder
      
         Client::factory(49)->create();
 
-        Client::factory()->create([
+        Client::firstOrCreate(
+        ['email' => 'john.smith@gmail.com'],
+        [
             'first_name'       => 'John',
             'middle_name'      => 'Doe',
             'first_last_name'  => 'Smith',
@@ -20,13 +22,14 @@ class ClientSeeder extends Seeder
             'gender'           => 'Masculino',
             'grupo_sanguineo'  => 'A+',
             'doc_type'         => 'CC',
-            'email'            => 'john.smith@example.com',
-            'id_number'        => '1234567890', 
             'birth_date'       => '1990-01-01',
+            'id_number'        => '1234567890',
             'fecha_exp_doc'    => '2020-01-01',
             'place_exp'        => 'Bogotá',
             'phone'            => '3001234567',
+            'address'          => '580 Deckow Wall Apt. 278',
             'is_active'        => true,
-        ]);
+        ]
+    );
     }
 }

@@ -10,10 +10,11 @@ return new class extends Migration {
             $table->id('agencia_id');
             $table->string('id_direc', 45);
             $table->string('id_telefono', 45);
-            $table->unsignedBigInteger('city_name_city');
-            $table->foreign('city_name_city')->references('name_city')->on('City')->onDelete('cascade');
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->references('city_id')->on('City')->onDelete('cascade');
             $table->timestamps();
         });
     }
+
     public function down(): void { Schema::dropIfExists('agencias'); }
 };

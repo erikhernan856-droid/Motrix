@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->string('doc_type', 10)->default('CC');
             $table->date('birth_date')->nullable();
+            $table->string('id_number', 30)->unique();
             
             $table->timestamps();
         });

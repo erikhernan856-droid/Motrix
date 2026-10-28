@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -33,6 +34,7 @@ class ServiceController extends Controller
 
         Service::create([
             'name'        => $validated['name'],
+            'slug'        => Str::slug($validated['name']),
             'description' => $validated['description'] ?? null,
             'price'       => $validated['price'],
             'is_active'   => $request->has('is_active') ? $request->is_active : true,
@@ -59,6 +61,7 @@ class ServiceController extends Controller
 
         $service->update([
             'name'        => $validated['name'],
+            'slug'        => Str::slug($validated['name']),
             'description' => $validated['description'] ?? null,
             'price'       => $validated['price'],
             'is_active'   => $request->has('is_active') ? $request->is_active : $service->is_active,

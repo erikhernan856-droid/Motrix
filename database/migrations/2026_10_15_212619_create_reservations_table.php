@@ -8,13 +8,14 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('Reserva', function (Blueprint $table) {
             $table->id('reserva_id');
+            $table->foreignId('client_id')->constrained('clients', 'client_id')->onDelete('cascade');
             $table->string('id_moto', 45);
             $table->string('id_agencia', 45);
             $table->string('id_precio', 45);
             $table->string('id_pago', 45);
             $table->string('id_fecha', 45);
             $table->string('id_fechafin', 45);
-            $table->string('fech_reserv', 45);
+            $table->string('fech_reserva', 45);
             $table->timestamps();
         });
     }

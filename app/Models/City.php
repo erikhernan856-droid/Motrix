@@ -10,8 +10,8 @@ class City extends Model
     use HasFactory;
 
     protected $table = 'City';
-    protected $primaryKey = 'name_city';
-    protected $guarded = [];
+    protected $primaryKey = 'city_id';
+    protected $fillable = ['cod_postal', 'province', 'num_habits'];
 
     // Una ciudad tiene muchas agencias
     public function agencias()

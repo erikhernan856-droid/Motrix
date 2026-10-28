@@ -1,7 +1,7 @@
 import { Head } from '@inertiajs/react';
 
 interface Client {
-    id: number;
+    client_id: number;
     doc_type?: string | null;
     id_number?: string | null;
     first_name: string;
@@ -43,7 +43,7 @@ export default function Dashboard({ recentClients = [] }: DashboardProps) {
                                 </thead>
                                 <tbody className="divide-y divide-sidebar-border/40">
                                     {recentClients.map((client) => (
-                                        <tr key={client.id}>
+                                        <tr key={client.client_id}>
                                             <td className="py-3">{client.id_number ?? '-'}</td>
                                             <td className="py-3">{`${client.first_name} ${client.first_last_name}`}</td>
                                             <td className="py-3">{client.phone ?? '-'}</td>

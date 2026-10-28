@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { index } from '@/routes/clients';
 
 type client = {
-  id: number;
+  client_id: number;
   doc_type: string;
   id_number: number;
   first_name: string;
@@ -43,7 +43,7 @@ export default function ClientEdit({ client, docTypes, genders }: Props) {
         />
 
         <Form
-          {...ClientController.update.form({ client: client.id })}
+          {...ClientController.update.form({ client: client.client_id })}
           className="flex flex-col gap-6"
         >
           {({ processing, errors }) => (

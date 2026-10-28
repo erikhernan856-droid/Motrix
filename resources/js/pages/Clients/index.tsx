@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { create, edit, index, destroy } from '@/routes/clients';
 
 interface Client {
-  id: number;
+  client_id: number;
   doc_type?: string | null;
   id_number?: string | null;
   first_name: string;
@@ -108,7 +108,7 @@ export default function ClientsIndex({ clients, filters }: Props) {
                   .join(' ');
 
                 return (
-                  <tr key={c.id} className="hover:bg-sidebar-accent/40 transition-colors">
+                  <tr key={c.client_id} className="hover:bg-sidebar-accent/40 transition-colors">
                     <td className="px-4 py-3 font-mono text-xs">{c.doc_type ?? '-'}</td>
                     <td className="px-4 py-3 font-mono">{c.id_number ?? '-'}</td>
                     <td className="px-4 py-3 font-medium">{fullName || '-'}</td>
@@ -118,14 +118,14 @@ export default function ClientsIndex({ clients, filters }: Props) {
                     <td className="px-4 py-3 text-right">
                       <div className="flex justify-end gap-2">
                         <Link
-                          href={edit({ client: c.id }).url}
+                          href={edit({ client: c.client_id }).url}
                           prefetch
                           className="rounded px-2 py-1 text-xs font-medium text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950"
                         >
                           <Pencil size={14} />
                         </Link>
                         <button
-                          onClick={() => handleDelete(c.id, fullName)}
+                          onClick={() => handleDelete(c.client_id, fullName)}
                           className="rounded px-2 py-1 text-xs font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950"
                         >
                           <Trash2 size={14} />

@@ -9,7 +9,8 @@ class Client extends Model
 {
     use HasFactory;
 
-    protected $table = 'Clients';
+    protected $table = 'clients';
+    protected $primaryKey = 'client_id';
 
     public const DOC_TYPES = [
         'CC' => 'Cédula de Ciudadanía',
@@ -31,6 +32,7 @@ class Client extends Model
         'middle_name',
         'first_last_name',
         'second_last_name',
+        'gender',
         'place_exp',
         'phone',
         'loyalty_pts',
@@ -42,23 +44,28 @@ class Client extends Model
         'fecha_exp_doc',
     ];
 
+    public function getRouteKeyName(): string
+    {
+        return 'client_id';
+    }
+
     public function scopeSearch($query, $search)
     {
         return $query->where(function ($q) use ($search) {
             $q->where('first_name', 'like', "%{$search}%")
                 ->orWhere('first_last_name', 'like', "%{$search}%")
-                ->orWhere('id_number', 'like', "%{$search}%");
+                ->orWhere('id_number', 'like', "%{$search}%")
+                ->orWhere('email', 'like', "%{$search}%");
         });
     }
 
     public function vehicles()
     {
-        return $this->hasMany(Vehicle::class, 'client_id', 'id'); 
-    
+        return $this->hasMany(Vehicle::class, 'client_id', 'client_id');
     }
 
     public function reservations()
     {
-        return $this->hasMany(Reservation::class, 'client_id', 'id');
+        return $this->hasMany(Reserva::class, 'client_id', 'client_id');
     }
 }
